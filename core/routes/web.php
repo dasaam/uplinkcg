@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ECOM\ProductosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('productos', ProductosController::class);
+Route::get('get_productos', [ProductosController::class, 'ajax'])->name('get_productos'); 
+
+//Route::get('/productos', [App\Http\Controllers\ECOM\ProductosController::class, 'index'])->name('productos');
+//Route::get('/producto-crear', [App\Http\Controllers\ECOM\ProductosController::class, 'create']);
