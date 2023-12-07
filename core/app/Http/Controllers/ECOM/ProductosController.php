@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
 class ProductosController extends Controller
 {
@@ -33,7 +34,7 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        //
+        return view('ECOM.productos.crear');
     }
 
     /**
@@ -41,7 +42,17 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Producto::create([
+            'idapp' => $request->input('app'),
+            'producto' => $request->input('producto'),
+            'url' => Str::slug($request->input('producto'), '-'),
+            'modelo' => $request->input('modelo'),
+            'descripcion_corta' => $request->input('descripcion')
+        ]);
+
+        session()->flash('success', 'Producto creado correctamente' );
+
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -55,24 +66,37 @@ class ProductosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Producto $producto)
+    public function edit($idproductoapp)
     {
-        //
+        $producto = Producto::findOrFail($idproductoapp);
+
+        return view('ECOM.productos.crear', compact('producto'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, $idproductoapp)
     {
-        //
+        $producto = Producto::findOrFail($idproductoapp);
+        $producto->update($request->except('_token','_method'));
+
+        session()->flash('success', 'Producto actualizado correctamente');
+
+        return redirect()->route('productos.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
+    //public function destroy(Producto $producto)
     public function destroy(Producto $producto)
     {
-        //
+
+        $producto->delete();
+
+        session()->flash('success', 'Producto eliminado correctamente' );
+
+        return redirect()->route('productos.index');
     }
 }

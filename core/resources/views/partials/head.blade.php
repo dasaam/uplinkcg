@@ -29,5 +29,10 @@
 <link rel="stylesheet" href="{{url('plugins/daterangepicker/daterangepicker.css')}}">
 <!-- summernote -->
 <link rel="stylesheet" href="{{url('plugins/summernote/summernote-bs4.min.css')}}">
-
+<!-- Datatables -->
+<link rel="stylesheet" href="{{url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('plugins/datatables-fixedheader/css/fixedHeader.bootstrap4.min.css')}}">
+<!-- sweetalert -->
+<link rel="stylesheet" href="{{url('plugins/sweetalert2/sweetalert2.css')}}">
 @yield('css')
