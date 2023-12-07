@@ -32,7 +32,7 @@
 @endsection
 
 @section('content')
-<div class="card card-primary">
+<div class="card card-warning">
     <div class="card-header">
       <h3 class="card-title">{{ 'Editar producto' }}</h3>
     </div>
@@ -45,7 +45,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-warning">
                 <i class="fa fa-check"></i> {{ 'Guardar' }}
             </button>
         </div>

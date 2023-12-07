@@ -10,6 +10,11 @@ use Illuminate\Support\Str;
 
 class ProductosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function ajax(Request $request)
     {
         $model = Producto::query();
@@ -70,7 +75,7 @@ class ProductosController extends Controller
     {
         $producto = Producto::findOrFail($idproductoapp);
 
-        return view('ECOM.productos.crear', compact('producto'));
+        return view('ECOM.productos.editar', compact('producto'));
     }
 
     /**

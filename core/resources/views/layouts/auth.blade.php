@@ -15,20 +15,9 @@
   <link rel="stylesheet" href="{{url('dist/css/adminlte.min.css')}}">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
-  <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="#" class="h1"><b>Admin</b>LTE</a>
-    </div>
-    <div class="card-body">
-      @yield('content')
-    </div>
-    <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
-</div>
-<!-- /.login-box -->
+
+  @yield('content')
+   
 
 <!-- jQuery -->
 <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>

@@ -14,15 +14,17 @@ use App\Http\Controllers\ECOM\ProductosController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('login');
-});
+});*/
+
+Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('productos', ProductosController::class);
-Route::get('get_productos', [ProductosController::class, 'ajax'])->name('get_productos'); 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('productos', ProductosController::class);
+    Route::get('get_productos', [ProductosController::class, 'ajax'])->name('get_productos'); 
+});
 
-//Route::get('/productos', [App\Http\Controllers\ECOM\ProductosController::class, 'index'])->name('productos');
-//Route::get('/producto-crear', [App\Http\Controllers\ECOM\ProductosController::class, 'create']);
