@@ -10,7 +10,7 @@
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0">
-          <i class="nav-icon fa fa-user-md"></i>   
+          <i class="nav-icon fas fa-tshirt"></i>   
           {{'Productos'}}
         </h1>
       </div><!-- /.col -->
@@ -42,15 +42,12 @@
         <table id="productos_table" class="table table-striped table-hover table-bordered"  width="100%">
           <thead>
             <tr>
-              <th width="10px">#</th>
               <th>{{ 'ID'}}</th>
               <th>{{ 'APP' }}</th>
-              <th>{{ 'IMG' }}</th>
               <th>{{ 'PRODUCTO' }}</th>
-              <th>{{ 'MARCA' }}</th>
+              <th>{{ 'URL' }}</th>
               <th>{{ 'MODELO' }}</th>
-              <th>{{ 'PRECIO' }}</th>
-              <th>{{ 'ESTATUS' }}</th>
+              <th>{{ 'DESCRIPCION' }}</th>
               <th width="100px">{{ 'Acciones' }}</th>
             </tr>
           </thead>
